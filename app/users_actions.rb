@@ -28,7 +28,7 @@ end
 post 'users/signup' do
   if params[:password] == params[:validate_password]
     new_user = User.new(
-      username = params[:username]
+      username = params[:username],
       password = params[:password]
     )
   else
