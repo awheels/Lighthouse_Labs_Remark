@@ -1,4 +1,10 @@
-Form for creating new Documents
+<!--These Scripts are here for the editor to work. They need to be in the body -->
 <script type="text/javascript" src="/bower_components/jquery-notebook/src/js/libs/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/bower_components/jquery-notebook/src/js/jquery.notebook.js"></script>
-<div class="editor"></div>
+
+<div id="editor_box"><!--This Box CANNOT be styled with bootstrap It breaks the editor's styling.-->
+  Form for creating new Documents  
+  <div class="editor"></div>
+</div><!-- Bootstrap allowed past this point -->
+
+<button type="button" class="btn btn-default" class="submit-btn">Submit</button>
