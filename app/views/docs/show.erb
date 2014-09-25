@@ -1,1 +1,13 @@
 Specific Documents Page.
+
+<div class="container">
+  <div class="col-md-11 col-md-offset-0.5">
+      <% @document.paragraphs.each do |paragraph| %>
+        
+        <div class="row"><div class="col-xs-8"><%= paragraph.body %></div>
+        <% paragraph.comments.each do |comment| %>
+          <div class="col-xs-5"><%= comment.content %></div></div>
+        <% end %>
+      <% end %> 
+  </div>
+</div>

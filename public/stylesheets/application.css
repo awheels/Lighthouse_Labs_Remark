@@ -10,3 +10,17 @@ margin-top:0
   min-height: 500px;
 }
 
+p {
+  font-size:22px;
+  line-height: 1.5;
+  font-family: "Times New Roman", Georgia, Serif;
+}
+/*
+.documentContent{
+  margin-left: 0px
+}
+
+.pbody {
+  width: 750px;
+}*/
+
