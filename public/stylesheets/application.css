@@ -3,4 +3,9 @@
 margin-top:0
 }
 
-#editor_box
+#editor_box {
+  margin: auto;
+  margin-top: 40px;
+  width:  85%;
+  min-height: 500px;
+}
