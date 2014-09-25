@@ -32,6 +32,6 @@ post '/docs' do
 end
 
 get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
-  #@document = Document.find(params[:id]) \\ Uncomment/change this when databases are implemented. -Daniel
+  @document = Document.find(params[:id]) 
   erb :'docs/show'
 end
