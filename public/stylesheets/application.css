@@ -1,0 +1,6 @@
+.jquery-notebook.bubble button {
+  /*This style fixes a problem with the notebook editor and bootstrap. Please do not touch!*/
+margin-top:0
+}
+
+#editor_box
