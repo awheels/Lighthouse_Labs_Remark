@@ -15,12 +15,12 @@ p {
   line-height: 1.5;
   font-family: "Times New Roman", Georgia, Serif;
 }
-/*
-.documentContent{
-  margin-left: 0px
+
+.col-xs-4 {
+  display: inline-block;
+  float: right;
 }
 
-.pbody {
-  width: 750px;
-}*/
-
+.col-xs-8 {
+  diplay: inline-block;
+}

@@ -5,9 +5,9 @@ Specific Documents Page.
       <% @document.paragraphs.each do |paragraph| %>
         
         <div class="row"><div class="col-xs-8"><%= paragraph.body %></div>
-        <% paragraph.comments.each do |comment| %>
-          <div class="col-xs-5"><%= comment.content %></div></div>
-        <% end %>
+        <div class="col-xs-4"><% paragraph.comments.each do |comment| %>
+          <%= comment.content %>
+        <% end %></div></div>
       <% end %> 
   </div>
 </div>
