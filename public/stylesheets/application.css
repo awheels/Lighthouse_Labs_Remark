@@ -10,15 +10,28 @@ margin-top:0
   min-height: 500px;
 }
 
+h1 {
+  text-align: left;
+  font-family: Century Gothic, sans-serif !important;
+}
+
 p {
   font-size:22px;
   line-height: 1.5;
   font-family: "Times New Roman", Georgia, Serif;
 }
 
+.document_title{
+  padd-bottom: 30px;
+
+}
 .comment_bar {
   display: none;
   float: right;
+}
+
+.description p {
+  font-size:12px;
 }
 
 .comment_bar p {
