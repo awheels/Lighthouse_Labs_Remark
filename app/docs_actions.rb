@@ -21,11 +21,10 @@ end
 post '/docs' do
   paragraphs = params[:p]
   puts paragraphs
-  # The Bulk of our paragraph/document creation will go here.
-  #Document metadata
+  # The request here is coming from ajax in application.js
   new_doc = Document.new(
-    title: "The benifits of placeholder text",
-    description: "100 great reasons to use placeholder text.",
+    title: params[:t],
+    description: params[:d],
     user_id: session[:id]
   )
   
