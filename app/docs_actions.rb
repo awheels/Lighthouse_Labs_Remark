@@ -46,9 +46,3 @@ post '/comment' do
 
   redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
 end
-
-
-get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
-  @document = Document.find(params[:id]) 
-  erb :'docs/show'
-end
