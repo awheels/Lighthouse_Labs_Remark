@@ -17,8 +17,9 @@ $(document).ready(function() {
     var input = $('.editor').find('p,h1,h2');
     input.removeAttr('contenteditable');
     var paragraphs = convertToArr(input);
-    console.log(paragraphs);
-    $.post('/docs', {p: paragraphs}).then(function(id)
+    documentTitle = $('.title-input').val();
+    documentInfo = $('.description-input').val();
+    $.post('/docs', {p: paragraphs, d: documentInfo, t: documentTitle}).then(function(id)
     {
       location.href = '/docs/' + id;
     });
