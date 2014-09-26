@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <strong><%= @message %></strong>
+    </div>
+  </div>
+  <div class="col-md-8 col-md-offset-3">
     <div class="row">
       <div class="col-xs-5">
         <h2>Login</h2>
         <hr/>
-        <% if @user.errors.any? %>
+        <% if @login_error %>
           <div>
-            <strong>You have failed to meet the requirements for your login credentials, please fix them:</strong>
-            <ul>
-              <% @user.errors.full_messages.each do |user| %>
-                <li><%= user %></li>
-              <% end %>
-            </ul>
+            <strong>Your username/password is incorrect.</strong>
           </div>
         <% end %>
 
@@ -46,7 +46,7 @@
           <label>Password:</label>
           <input type="password" class="form-control" name="password" value="<%= @user.password %>">
           <label>Validate Password:</label>
-          <input type="password" class="form-control" name="validate_password" value="<%= @user.password %>">
+          <input type="password" class="form-control" name="validate_password">
           <br>
           <div><input type="submit" class="btn btn-info" value="Submit"></div>
         </form>
