@@ -20,10 +20,10 @@ Specific Documents Page.
             </div>
               
             <% end %>
-            <button type="button" onclick="$('.comment_form').toggle();" class="btn btn-default btn-sm">
+            <button type="button" onclick="$('#comment_form_<%= paragraph.id%>').toggle();" class="btn btn-default btn-sm">
               <span class="glyphicon glyphicon-plus-sign"></span>
             </button>
-            <form class="comment_form" role="form" method="post" action="/comment">
+            <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment">
               <textarea class="form-control" rows="1" name="comment"></textarea>
               <input type="hidden" name="paragraph_id" value=<%=paragraph.id%>>
               <div><input type="submit" class="btn btn-info" value="Submit"></div>

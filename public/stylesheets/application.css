@@ -39,5 +39,7 @@ p {
   float:left;
 }
 
-
+.comment_form {
+  display:none;
+}
 
