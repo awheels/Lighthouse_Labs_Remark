@@ -43,4 +43,16 @@ p {
 }
 
 
+#main_box{
+  height: 200px;
 
+  background-color: black;
+
+}
+
+#feature_box{
+  height: 100px;
+
+  background-color: black;
+
+}
