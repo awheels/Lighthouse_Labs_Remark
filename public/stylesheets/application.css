@@ -16,25 +16,22 @@ p {
   font-family: "Times New Roman", Georgia, Serif;
 }
 
-.comment_bar p {
-  margin-bottom: 0;
-}
-
-.col-xs-4 {
+.comment_bar {
   display: inline-block;
   float: right;
 }
 
-.col-xs-4 p {
-  font-size:18px;
+.comment_bar p {
+  font-size:12px;
+  margin-bottom: 0;
 }
 
-.col-xs-8 {
+.paragraph_body {
   display: inline-block;
 }
 
 .comment_user {
-  font-size:14px;
+  font-size:10px;
   text-align:right;
 }
 
