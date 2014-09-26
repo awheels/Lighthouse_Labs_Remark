@@ -5,11 +5,11 @@ Specific Documents Page.
       <% @document.paragraphs.each do |paragraph| %>
         
         <div class="row">
-          <div class="col-xs-8 paragraph_body"><%= paragraph.body %></div>
-          <div class="col-xs-4 comment_bar">
+          <div class="col-xs-8 paragraph_body" data-target="#comment_for_paragraph_<%=paragraph.id%>"> <%= paragraph.body %></div>
+          <div id="comment_for_paragraph_<%=paragraph.id%>" class="col-xs-4 comment_bar">
             <% paragraph.comments.each do |comment| %>
             <div>
-              <div class="">
+              <div>
                 <%= comment.content %>
                 
               </div>
@@ -29,10 +29,14 @@ Specific Documents Page.
               <div><input type="submit" class="btn btn-info" value="Submit"></div>
              </form>
           </div>
-        </div>
+        </div>   
       <% end %> 
   </div>
 </div>
 
-
-
+<script>
+$( ".paragraph_body" ).click(function() {
+  var target = $( this ).attr("data-target");
+  $(target).toggle();
+});
+</script>

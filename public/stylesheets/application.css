@@ -17,13 +17,14 @@ p {
 }
 
 .comment_bar {
-  display: inline-block;
+  display: none;
   float: right;
 }
 
 .comment_bar p {
   font-size:12px;
   margin-bottom: 0;
+
 }
 
 .paragraph_body {
