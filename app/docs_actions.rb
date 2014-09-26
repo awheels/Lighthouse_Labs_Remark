@@ -51,6 +51,6 @@ post '/comment' do
 
     redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
   else
-    redirect "/user/login"
+    redirect "/users/login"
   end
 end

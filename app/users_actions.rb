@@ -4,6 +4,7 @@ end
 
 get '/users/login' do
   @user = User.new
+  @message = params[:message]
   erb :'users/login'
 end
 
