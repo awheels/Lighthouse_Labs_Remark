@@ -48,8 +48,9 @@ post '/comment' do
       paragraph_id: params[:paragraph_id]
     )
     @comment.save
-
-    redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
+    @document = Document.find(Paragraph.find(params[:paragraph_id]).document_id)
+    erb :'docs/show'
+    # redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
   else
     redirect "/user/login"
   end

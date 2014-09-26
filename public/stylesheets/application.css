@@ -29,17 +29,13 @@ p {
 
 .paragraph_body {
   display: inline-block;
+  cursor: default;
 }
 
 .comment_user {
   font-size:10px;
   text-align:right;
 }
-
-#add_comment {
-  float:left;
-}
-
 
 .comment_form {
   display:none;
