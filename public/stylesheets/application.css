@@ -42,17 +42,47 @@ p {
   float:left;
 }
 
+#re{font-size: 250%;
+  font-family: "Lucida Handwriting", cursive;
+}
 
-#main_box{
-  height: 200px;
+#remarks{font-size: 250%;
+  font-family: "Lucida Handwriting", cursive;
+  color: #CC0000;
+}
 
+.width-fix {max-width:1100px;}
+
+.top-buffer { margin-top:20px; }
+
+.top-buffer-main { margin-top:20px; }
+
+.remark-background{ background-image: url(http://4.bp.blogspot.com/_1U1Q14FVyII/TCELspqujBI/AAAAAAAADrM/wU3fYsPW-ik/s1600/landscapebinder.PNG) }
+
+.main-box{
+  height: 400px;
   background-color: black;
-
 }
 
 #feature_box{
-  height: 100px;
-
+  height: 190px;
   background-color: black;
+  color: white;
+  padding: 5%;
 
+}
+
+#footer-fix{ height: 30px }
+
+h2{
+    margin: 0;     
+    color: #666;
+    padding-top: 60px;
+    font-size: 52px;
+    font-family: "trebuchet ms", sans-serif;    
+}
+.item{
+    background: #333;    
+    text-align: center;
+    height: 400px !important;
 }
