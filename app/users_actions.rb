@@ -3,7 +3,9 @@ get '/users' do
 end
 
 get '/users/login' do
+  @login_error = false
   @user = User.new
+  @message = " "
   erb :'users/login'
 end
 
@@ -13,32 +15,36 @@ get '/users/logout' do
 end
 
 post '/login' do
-  if User.find_by username: params[:username]
-    user = User.find_by username: params[:username]
-    if user[:password] == params[:password]
-      session[:id] = user[:id]
+  @user = User.find_by username: params[:username]
+  if @user
+    if @user[:password] == params[:password]
+      session[:id] = @user[:id]
       redirect '/'
     else
-      redirect '/users/login'
+      @login_error = true
+      erb :'users/login'
     end
   else
-    redirect '/users/login'
+    @login_error = true
+    erb :'users/login'
   end
 end
 
 post '/signup' do
   if params[:password] == params[:validate_password]
-    new_user = User.new(
-      username: params[:username],
-      password: params[:password]
-    )
-    if new_user.save
-      redirect '/users'
-    else 
-      redirect '/users/login' 
-    end
+    password = params[password]
   else
-    redirect '/users/login'
+    password = false
+  end
+  @user = User.new(
+    username: params[:username],
+    password: password
+  )
+  if @user.save
+    session[:id] = @user.id
+    redirect '/users'
+  else
+    erb :'/users/login' 
   end
 end
 

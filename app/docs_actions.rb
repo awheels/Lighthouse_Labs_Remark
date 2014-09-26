@@ -6,7 +6,10 @@ get '/docs/create' do #document creation page.
   if login?
     erb :'docs/create'
   else
-    redirect '/users/login'
+    @message = "Please login or sign up to post a new document"
+    @login_error = false
+    @user = User.new
+    erb :'/users/login'
   end
 end
 
@@ -51,6 +54,6 @@ post '/comment' do
 
     redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
   else
-    redirect "/user/login"
+    redirect "/users/login"
   end
 end
