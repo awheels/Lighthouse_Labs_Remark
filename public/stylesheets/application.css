@@ -16,11 +16,31 @@ p {
   font-family: "Times New Roman", Georgia, Serif;
 }
 
+.comment_bar p {
+  margin-bottom: 0;
+}
+
 .col-xs-4 {
   display: inline-block;
   float: right;
 }
 
-.col-xs-8 {
-  diplay: inline-block;
+.col-xs-4 p {
+  font-size:18px;
 }
+
+.col-xs-8 {
+  display: inline-block;
+}
+
+.comment_user {
+  font-size:14px;
+  text-align:right;
+}
+
+#add_comment {
+  float:left;
+}
+
+
+
