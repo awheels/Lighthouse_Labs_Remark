@@ -22,7 +22,7 @@ post '/login' do
       redirect '/users/login'
     end
   else
-      redirect '/users/login'
+    redirect '/users/login'
   end
 end
 
