@@ -3,7 +3,16 @@ get '/docs' do #show list of documents.
 end
 
 get '/docs/create' do #document creation page.
-  erb :'docs/create'
+  if login?
+    erb :'docs/create'
+  else
+    redirect '/users/login'
+  end
+end
+
+get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
+  @document = Document.find(params[:id]) 
+  erb :'docs/show'
 end
 
 post '/docs' do
@@ -16,34 +25,32 @@ post '/docs' do
     description: "100 great reasons to use placeholder text.",
     user_id: session[:id]
   )
-  new_doc_id = new_doc.id
+  
   new_doc.save
   pnum = 0
 
   paragraphs.each do |p|
     Paragraph.create(
       body: p,
-      document_id: new_doc_id,
+      document_id: new_doc.id,
       position: pnum
     )
     pnum += 1
   end
-  redirect '/docs/:new_doc_id'
+  new_doc.id.to_s
 end
 
 post '/comment' do
-  @comment = Comment.new(
-    content: params[:comment],
-    user_id: session[:id],
-    paragraph_id: params[:paragraph_id]
-  )
-  @comment.save
+  if login?
+    @comment = Comment.new(
+      content: params[:comment],
+      user_id: session[:id],
+      paragraph_id: params[:paragraph_id]
+    )
+    @comment.save
 
-  redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
-end
-
-
-get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
-  @document = Document.find(params[:id]) 
-  erb :'docs/show'
+    redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
+  else
+    redirect "/user/login"
+  end
 end

@@ -5,7 +5,9 @@ $(document).ready(function() {
   function convertToArr(set) {
     var results = [];
     set.each(function(index) {
-      results.push(set[index].outerHTML);
+      if ($(set[index]).text().length > 1) {
+        results.push(set[index].outerHTML);
+      }
     });
     return results;
   };
@@ -13,8 +15,12 @@ $(document).ready(function() {
   $(".submit-btn").on( "click", function() {
     console.log("clicked!")
     var input = $('.editor').find('p,h1,h2');
+    input.removeAttr('contenteditable');
     var paragraphs = convertToArr(input);
-    console.log(paragraphs)
-    $.post('/docs', {p: paragraphs});
+    console.log(paragraphs);
+    $.post('/docs', {p: paragraphs}).then(function(id)
+    {
+      location.href = '/docs/' + id;
+    });
   });
 });

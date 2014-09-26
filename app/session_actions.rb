@@ -13,5 +13,4 @@ helpers do
   def username
     User.find(session[:id]).username
   end
-  
 end
