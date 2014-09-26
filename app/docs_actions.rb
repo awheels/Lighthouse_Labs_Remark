@@ -6,6 +6,11 @@ get '/docs/create' do #document creation page.
   erb :'docs/create'
 end
 
+get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
+  @document = Document.find(params[:id]) 
+  erb :'docs/show'
+end
+
 post '/docs' do
   paragraphs = params[:p]
   puts paragraphs
@@ -16,14 +21,14 @@ post '/docs' do
     description: "100 great reasons to use placeholder text.",
     user_id: session[:id]
   )
-  new_doc_id = new_doc.id
+  
   new_doc.save
   pnum = 0
 
   paragraphs.each do |p|
     Paragraph.create(
       body: p,
-      document_id: new_doc_id,
+      document_id: new_doc.id,
       position: pnum
     )
     pnum += 1
