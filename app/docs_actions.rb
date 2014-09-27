@@ -21,11 +21,10 @@ end
 post '/docs' do
   paragraphs = params[:p]
   puts paragraphs
-  # The Bulk of our paragraph/document creation will go here.
-  #Document metadata
+  # The request here is coming from ajax in application.js
   new_doc = Document.new(
-    title: "The benifits of placeholder text",
-    description: "100 great reasons to use placeholder text.",
+    title: params[:t],
+    description: params[:d],
     user_id: session[:id]
   )
   
@@ -51,9 +50,9 @@ post '/comment' do
       paragraph_id: params[:paragraph_id]
     )
     @comment.save
-    @document = Document.find(Paragraph.find(params[:paragraph_id]).document_id)
-    erb :'docs/show'
-    # redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
+    # @document = Document.find(Paragraph.find(params[:paragraph_id]).document_id)
+    # erb :'docs/show'
+    redirect "docs/#{Paragraph.find(params[:paragraph_id]).document_id}"
   else
     redirect "/users/login"
   end
