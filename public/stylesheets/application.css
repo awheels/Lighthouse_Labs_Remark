@@ -186,3 +186,15 @@ p {
       font-family: "Optima", Sans-Serif;
       font-size: small;
 }
+
+#carousel-1{
+            background-image: url(http://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png)
+}
+
+#carousel-2{
+            background-image: url(http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png)
+}
+
+#carousel-3{
+            background-image: url(http://upload.wikimedia.org/wikipedia/en/a/aa/Pok%C3%A9mon_Meowth_art.png)
+}
