@@ -35,7 +35,8 @@ p {
   font-size:22px;
   line-height: 1.5;
   text-align: justify;
-  font-family: "Times New Roman", Georgia, Serif;
+  font-family: Optima, Segoe, "Segoe UI", Candara, "Times new roman", Arial, sans-serif;
+  margin-bottom: 18px;
 }
 
 .right-post-info {
@@ -172,11 +173,13 @@ p {
 .document-view-box h1 {
   font-size: 3.5em;
   text-align: center;
+  margin-top: 30px;
 }
 
 .document-view-box p {
   padding: 3%;
-  font-size: 1.2em;
+  font-size: 1.15em;
+  margin-bottom: 0px; 
 }
 
 #footer-fix{ height: 30px }
