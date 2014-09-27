@@ -1,1 +1,28 @@
-Form for creating new Documents
+<!--These Scripts are here for the editor to work. They need to be in the body -->
+<script type="text/javascript" src="/bower_components/jquery-notebook/src/js/libs/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/bower_components/jquery-notebook/src/js/jquery.notebook.js"></script>
+
+<div class = "default-box" id="form-box">
+  <div class="row">
+      <div class="col-md-5 col-md-offset-1">
+        <form>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="type" class="form-control title-input" placeholder="Document Title">
+          </div>
+          <div class="form-group">
+            <label for="title">Description</label>
+            <textarea class="form-control description-input" rows="3" placeholder="Write a short description of your paragraph. Max 250 characters."></textarea>
+          </div>
+        </form>
+      </div>
+    <div class="col-md-5">
+    Text! Some instructions about the editor can go here.</div>
+
+  </div>
+  <div id="editor_box"><!--This Box CANNOT be styled with bootstrap It breaks the editor's styling.-->
+    <div class="editor"></div>
+  </div><!-- Bootstrap allowed past this point -->
+
+  <button type="button" id="create-page-submit-button" class="btn btn-default submit-btn">Submit</button>
+</div>

@@ -1,1 +1,52 @@
-Specific Documents Page.
+<div id="document-page-box" class="container default-box">
+  <div class="col-md-12">
+    <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p id="document_page_author"><%=User.find(@document.user_id).username%></p></div>
+      <% @document.paragraphs.each do |paragraph| %>
+        
+        <div class="row-fluid">
+          <div class="col-xs-9 paragraph_body" data-target="#comment_for_paragraph_<%=paragraph.id%>"> <%= paragraph.body %></div>
+          <div id="comment_for_paragraph_<%=paragraph.id%>" class="col-xs-3 comment_bar">
+            <% paragraph.comments.each do |comment| %>
+            <div>
+              <div>
+                <%= comment.content %>
+                
+              </div>
+              <div class="col-xs-12 comment_user">
+
+                - <em><%= User.find(comment.user_id).username%></em>
+              </div>
+            </div>
+              
+            <% end %>
+            <%if session[:id]%>
+              <button type="button" onclick="$('#comment_form_<%= paragraph.id%>').toggle();" class="btn btn-default btn-sm" id="comment-view-button">
+                <span id = "comment_button" class="fa fa-plus-square"></span>
+              </button>
+              <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment" placeholder="Comment..">
+                <textarea class="form-control"  id="comment-submit-textbox" rows="1" name="comment"></textarea>
+                <input type="hidden" name="paragraph_id" value=<%=paragraph.id%>>
+                <div><input type="submit" class="btn btn-default" value="Submit"></div>
+              </form>
+            <%end%>
+          </div>
+        </div>   
+      <% end %> 
+  </div>
+</div>
+
+<script>
+$( ".paragraph_body" ).click(function() {
+  var target = $( this ).attr("data-target");
+  var already_visible = $(target).is(":visible");
+  
+  // Hide all comments
+  $('.comment_bar').hide();
+
+  // only show if wasn't originally visible
+  if (!already_visible) {
+    $(target).show();
+  } // otherwise leave it hidden
+});
+</script>
+

@@ -1,1 +1,15 @@
-The "List of Documents" page.
+<div>There will be a dropdown box here.</div>
+<% Document.all.each do |document| %> 
+<div class="row">
+  <a  href="/docs/<%= document.id %>">
+    <div class="col-md-10 col-md-offset-1 document-view-box default-box">
+      <div class="col-md-8"><h1><%= document.title %></h1>
+        <div class="col-md-3 col-md-offset-3 right-post-info"><p>450 comments</p>
+          </div class=".right-post-info">
+        <div class="col-md-3 left-post-info"><p><em>Daniel Harris</em></p></div>
+      </div>
+      <div class="col-md-4"><p><%=document.description %></p></div>
+    </div>
+  </a>
+</div>
+<% end %>
