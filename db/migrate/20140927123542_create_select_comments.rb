@@ -3,7 +3,7 @@ class CreateSelectComments < ActiveRecord::Migration
     create_table :selectioncomments do |t|
       t.text :content
       t.belongs_to :user
-      t.belongs_to :paragraph
+      t.belongs_to :document
       t.timestamps
     end
   end

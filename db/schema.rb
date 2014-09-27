@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140927123542) do
   create_table "selectioncomments", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "paragraph_id"
+    t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
