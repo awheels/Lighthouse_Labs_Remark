@@ -48,5 +48,14 @@ $( ".paragraph_body" ).click(function() {
     $(target).show();
   } // otherwise leave it hidden
 });
+
+$(document).on("mouseup", function() {
+  var selection= window.getSelection().getRangeAt(0);
+  var selectedText = selection.extractContents();
+  var span= document.createElement("span");
+  span.style.background = "red";
+  span.appendChild(selectedText);
+  selection.insertNode(span);
+});
 </script>
 
