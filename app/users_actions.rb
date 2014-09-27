@@ -32,7 +32,7 @@ end
 
 post '/signup' do
   if params[:password] == params[:validate_password]
-    password = params[password]
+    password = params[:password]
   else
     password = false
   end

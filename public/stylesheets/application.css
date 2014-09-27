@@ -1,4 +1,7 @@
-body { background-image: url(../images/lined-paper.jpg) }
+body { 
+  background-image: url(../images/lined-paper.jpg);
+  
+}
 
 .jquery-notebook.bubble button {
   /*This style fixes a problem with the notebook editor and bootstrap. Please do not touch!*/
@@ -14,7 +17,9 @@ margin-top:0
 
 h1 {
   text-align: left;
-  font-family: Century Gothic, sans-serif !important;
+  font-weight: bold;
+  font-family: kotta-one, serif;
+  /*font-family: Century Gothic, sans-serif !important;*/
 }
 
 a {
@@ -32,6 +37,26 @@ p {
   text-align: justify;
   font-family: "Times New Roman", Georgia, Serif;
 }
+
+.right-post-info {
+  padding-right: 2px;
+  padding-top: 5px;
+}
+
+.right-post-info p {
+  text-align: right;
+}
+
+.left-post-info {
+  text-align: left;
+  padding-left: 2px;
+  padding-top: 5px;
+}
+
+.left-post-info p {
+  text-align: left;
+}
+
 
 .form_control {
   margin-top: 10px;
@@ -112,7 +137,7 @@ p {
 }
 
 #re{font-size: 250%;
-  font-family: "Lucida Handwriting", cursive;
+  font-family: kotta-one, serif;
 }
 
 #remarks{font-size: 250%;
@@ -137,6 +162,21 @@ p {
   text-overflow: ellipsis;
   overflow: hidden;
   
+}
+
+.document-view-box {
+  min-height: 150px;
+  margin-bottom: 40px;
+}
+
+.document-view-box h1 {
+  font-size: 3.5em;
+  text-align: center;
+}
+
+.document-view-box p {
+  padding: 3%;
+  font-size: 1.2em;
 }
 
 #footer-fix{ height: 30px }
