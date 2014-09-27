@@ -1,3 +1,5 @@
+body { background-image: url(../images/lined-paper.jpg) }
+
 .jquery-notebook.bubble button {
   /*This style fixes a problem with the notebook editor and bootstrap. Please do not touch!*/
 margin-top:0
@@ -55,8 +57,6 @@ p {
 .top-buffer { margin-top:20px; }
 
 .top-buffer-main { margin-top:20px; }
-
-.remark-background{ background-image: url(http://4.bp.blogspot.com/_1U1Q14FVyII/TCELspqujBI/AAAAAAAADrM/wU3fYsPW-ik/s1600/landscapebinder.PNG) }
 
 .main-box{
   height: 400px;
