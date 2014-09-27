@@ -4,9 +4,9 @@
   <a  href="/docs/<%= document.id %>">
     <div class="col-md-10 col-md-offset-1 document-view-box default-box">
       <div class="col-md-8"><h1><%= document.title %></h1>
-        <div class="col-md-3 col-md-offset-3 right-post-info"><p>450 comments</p>
+        <div class="col-md-3 col-md-offset-3 right-post-info"><p><%= document.comments.count %> comments.</p>
           </div class=".right-post-info">
-        <div class="col-md-3 left-post-info"><p><em>Daniel Harris</em></p></div>
+        <div class="col-md-3 left-post-info"><p><em><%= document.user.username %></em></p></div>
       </div>
       <div class="col-md-4"><p><%=document.description %></p></div>
     </div>
