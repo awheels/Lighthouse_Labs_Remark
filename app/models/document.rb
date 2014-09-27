@@ -3,4 +3,5 @@ class Document < ActiveRecord::Base
   belongs_to :user
   has_many :paragraphs
   has_many :comments, through: :paragraphs
+  has_many :selectioncomments
 end
