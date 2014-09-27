@@ -24,4 +24,6 @@ $(document).ready(function() {
       location.href = '/docs/' + id;
     });
   });
+  //New code goes below :)
+
 });

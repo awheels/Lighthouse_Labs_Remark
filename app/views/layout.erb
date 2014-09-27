@@ -60,9 +60,15 @@
       <ul class="nav navbar-nav">
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/docs/create">Create a Doc</a></li>
-        <li><a href="/docs">Browse Docs</a></li>
-        <li><a href="/users/login">Sign In / Sign Up</a></li>
+        <% if login? %>
+          <li><a href="/docs/create">Create a Doc</a></li>
+          <li><a href="/docs">Browse Docs</a></li>
+          <li><a href="/users/logout" >Logout</a></li>
+        <% else %>
+          <li><a href="/docs/create" class="text-muted">Create a Doc</a></li>
+          <li><a href="/docs" class="text-muted">Browse Docs</a></li>
+          <li><a href="/users/login">Sign In / Sign Up</a></li>
+        <% end %>
         </ul>
     </div>
   </div>
