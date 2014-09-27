@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('.document-title-error').hide();
   $('.editor').notebook();
   console.log("doc loaded")
   
@@ -18,11 +19,18 @@ $(document).ready(function() {
     input.removeAttr('contenteditable');
     var paragraphs = convertToArr(input);
     documentTitle = $('.title-input').val();
-    documentInfo = $('.description-input').val();
-    $.post('/docs', {p: paragraphs, d: documentInfo, t: documentTitle}).then(function(id)
-    {
-      location.href = '/docs/' + id;
-    });
+    if (documentTitle === ""){
+      $('.document-create-error').show();
+    } else {
+      documentInfo = $('.description-input').val();
+      if (documentInfo === ""){
+        documentInfo = paragraphs(ary(0));
+      }
+      $.post('/docs', {p: paragraphs, d: documentInfo, t: documentTitle}).then(function(id)
+      {
+        location.href = '/docs/' + id;
+      });
+    }
   });
   //New code goes below :)
 
