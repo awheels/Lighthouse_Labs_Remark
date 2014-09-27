@@ -244,3 +244,7 @@ p {
       font-family: "Optima", Sans-Serif;
       font-size: small;
 }
+
+.document-title-error {
+  color: red;
+}
