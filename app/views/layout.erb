@@ -64,13 +64,13 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if login? %>
-          <li><a href="/docs/create">Create a Doc</a></li>
-          <li><a href="/docs">Browse Docs</a></li>
-          <li><a href="/users/logout" >Logout</a></li>
+          <li><a href="/docs/create" class="text-muted nav-font">Create a Doc</a></li>
+          <li><a href="/docs" class="text-muted nav-font">Browse Docs</a></li>
+          <li><a href="/users/logout" class="text-muted nav-font">Logout</a></li>
         <% else %>
-          <li><a href="/docs/create" class="text-muted">Create a Doc</a></li>
-          <li><a href="/docs" class="text-muted">Browse Docs</a></li>
-          <li><a href="/users/login">Sign In / Sign Up</a></li>
+          <li><a href="/docs/create" class="text-muted nav-font">Create a Doc</a></li>
+          <li><a href="/docs" class="text-muted nav-font">Browse Docs</a></li>
+          <li><a href="/users/login" class="text-muted nav-font">Sign In / Sign Up</a></li>
         <% end %>
         </ul>
     </div>
