@@ -18,16 +18,35 @@ h1 {
 p {
   font-size:22px;
   line-height: 1.5;
+  text-align: justify;
   font-family: "Times New Roman", Georgia, Serif;
 }
 
-.document_title{
-  padd-bottom: 30px;
-
+.form_control {
+  margin-top: 10px;
 }
+
+.container {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border-style:solid;
+  border-width:1px;
+  background:white;
+  box-shadow: 2px 2px 10px #888888;
+}
+.document_title{
+  padding-bottom: 30px;
+}
+
 .comment_bar {
   display: none;
   float: right;
+  border: 2px;
+  border-left: solid rgb(190,190,190);
+  border-width: 1px;
+  padding-bottom: 8px;
+  padding-top: 8px;
 }
 
 .description p {
@@ -37,13 +56,20 @@ p {
 .comment_bar p {
   font-size:12px;
   margin-bottom: 0;
+}
 
+.btn {
+  padding-top: 5px;
 }
 
 .paragraph_body {
   display: inline-block;
   cursor: default;
+  padding-right: 25px;
+  padding-left:5px;
 }
+
+
 
 .comment_user {
   font-size:10px;

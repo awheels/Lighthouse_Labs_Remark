@@ -1,12 +1,11 @@
-Specific Documents Page.
 
 <div class="container">
-  <div class="col-md-11 col-md-offset-0.5">
+  <div class="col-md-12">
     <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p><%=@document.author%></div>
 <!--     <div class="col-xs-3 description"> <p><%=@document.description%> </p></div>
  -->      <% @document.paragraphs.each do |paragraph| %>
         
-        <div class="row">
+        <div class="row-fluid">
           <div class="col-xs-9 paragraph_body" data-target="#comment_for_paragraph_<%=paragraph.id%>"> <%= paragraph.body %></div>
           <div id="comment_for_paragraph_<%=paragraph.id%>" class="col-xs-3 comment_bar">
             <% paragraph.comments.each do |comment| %>
@@ -29,7 +28,7 @@ Specific Documents Page.
               <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment">
                 <textarea class="form-control" rows="1" name="comment"></textarea>
                 <input type="hidden" name="paragraph_id" value=<%=paragraph.id%>>
-                <div><input type="submit" class="btn btn-info" value="Submit"></div>
+                <div><input type="submit" class="btn btn-default" value="Submit"></div>
               </form>
             <%end%>
           </div>
@@ -41,6 +40,15 @@ Specific Documents Page.
 <script>
 $( ".paragraph_body" ).click(function() {
   var target = $( this ).attr("data-target");
-  $(target).toggle();
+  var already_visible = $(target).is(":visible");
+  
+  // Hide all comments
+  $('.comment_bar').hide();
+
+  // only show if wasn't originally visible
+  if (!already_visible) {
+    $(target).show();
+  } // otherwise leave it hidden
 });
 </script>
+
