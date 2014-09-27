@@ -1,6 +1,5 @@
 
 <div class="container width-fix">
-
   <div class="row">
     <div class="col-md-8 top-buffer-main">
       <div id="myCarousel" class="carousel slide main-box" data-interval="3000" data-ride="carousel">
@@ -47,20 +46,24 @@
     <div class="col-md-4">
       <div class="row">
         <div class="col-md-12 top-buffer">
-          <div class="feature_box default-box">
-            <p class="title"><%=Document.find(1).title%></p>
-            <p class="author"><%=Document.find(1).author%></p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium. </p>
-          </div>
+          <a href="/docs/1"> 
+            <div class="feature_box default-box">
+              <p class="title"><%=Document.find(1).title%></p>
+              <p class="author"><%=User.find(Document.find(1)).username%></p>
+              <p class="desc"><%=Document.find(1).description%></p>
+            </div>
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12 top-buffer">
-          <div class="feature_box default-box">
-            <p class="title"><%=Document.find(1).title%></p>
-            <p class="author"><%=Document.find(1).author%></p>
-            <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.</p>
-          </div>
+          <a href="/docs/2"> 
+            <div class="feature_box default-box">
+              <p class="title"><%=Document.find(2).title%></p>
+              <p class="author"><%=User.find(Document.find(2)).username%></p>
+              <p class="desc"><%=Document.find(2).description%></p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -68,25 +71,31 @@
 
   <div class="row">
     <div class="col-md-4 top-buffer">
-      <div class="feature_box default-box">
-        <p class="title"><%=Document.find(1).title%></p>
-        <p class="author"><%=Document.find(1).author%></p>
-        <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.</p>
-      </div>
+      <a href="/docs/3"> 
+        <div class="feature_box default-box">
+          <p class="title"><%=Document.find(3).title%></p>
+          <p class="author"><%=User.find(Document.find(3)).username%></p>
+          <p class="desc"><%=Document.find(3).description%></p>
+        </div>
+      </a>
     </div>
     <div class="col-md-4 top-buffer">
-      <div class="feature_box default-box">
-        <p class="title"><%=Document.find(1).title%></p>
-        <p class="author"><%=Document.find(1).author%></p>
-        <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.</p>
-      </div>
+      <a href="/docs/4"> 
+          <div class="feature_box default-box">
+            <p class="title"><%=Document.find(4).title%></p>
+            <p class="author"><%=User.find(Document.find(4)).username%></p>
+            <p class="desc"><%=Document.find(4).description%></p>
+          </div>
+      </a>
     </div>
     <div class="col-md-4 top-buffer">
-      <div class="feature_box default-box">
-        <p class="title"><%=Document.find(1).title%></p>
-        <p class="author"><%=Document.find(1).author%></p>
-        <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium.</p>
-      </div>
+      <a href="/docs/4">
+        <div class="feature_box default-box">
+          <p class="title"><%=Document.find(5).title%></p>
+          <p class="author"><%=User.find(Document.find(2)).username%></p>
+          <p class="desc"><%=Document.find(5).description%></p>
+        </div>
+      </a>   
     </div>
   </div>
 
