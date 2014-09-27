@@ -1,6 +1,6 @@
-get '/users' do
-  erb :'users/my_profile'
-end
+# get '/users' do
+#   erb :'users/my_profile'
+# end
 
 get '/users/login' do
   @login_error = false
@@ -25,6 +25,7 @@ post '/login' do
       erb :'users/login'
     end
   else
+    @user = User.new
     @login_error = true
     erb :'users/login'
   end
@@ -42,12 +43,12 @@ post '/signup' do
   )
   if @user.save
     session[:id] = @user.id
-    redirect '/users'
+    redirect '/'
   else
     erb :'/users/login' 
   end
 end
 
-get '/users/:id' do
-  erb :'users'
-end
+# get '/users/:id' do
+#   erb :'users'
+# end
