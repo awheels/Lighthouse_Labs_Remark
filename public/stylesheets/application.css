@@ -9,12 +9,21 @@ margin-top:0
   margin: auto;
   margin-top: 40px;
   width: 80%;
-  min-height: 500px;
+  min-height: 200px;
 }
 
 h1 {
   text-align: left;
   font-family: Century Gothic, sans-serif !important;
+}
+
+a {
+  color:inherit;
+}
+
+a:hover{
+  text-decoration:none;
+  color:black;
 }
 
 p {
@@ -28,12 +37,22 @@ p {
   margin-top: 10px;
 }
 
+#form-box {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 30px;
+}
+
 #document-page-box {
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   padding-left: 20px;
 }
 
+#create-page-submit-button {
+  margin-bottom: 30px;
+  margin-left: 120px;
+}
 .default-box {
   border-style:solid;
   border-width:1px;
@@ -72,6 +91,10 @@ p {
   padding-top: 5px;
 }
 
+#comment-submit-textbox {
+  margin-top:4px;
+  margin-bottom:4px;
+}
 .paragraph_body {
   display: inline-block;
   cursor: default;

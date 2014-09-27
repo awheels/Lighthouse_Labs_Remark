@@ -1,6 +1,6 @@
 <div id="document-page-box" class="container default-box">
   <div class="col-md-12">
-    <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p id="document_page_author">Authored by: <%=User.find(@document.user_id).username%></p></div>
+    <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p id="document_page_author"><%=User.find(@document.user_id).username%></p></div>
       <% @document.paragraphs.each do |paragraph| %>
         
         <div class="row-fluid">
@@ -20,11 +20,11 @@
               
             <% end %>
             <%if session[:id]%>
-              <button type="button" onclick="$('#comment_form_<%= paragraph.id%>').toggle();" class="btn btn-default btn-sm">
+              <button type="button" onclick="$('#comment_form_<%= paragraph.id%>').toggle();" class="btn btn-default btn-sm" id="comment-view-button">
                 <span id = "comment_button" class="fa fa-plus-square"></span>
               </button>
-              <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment">
-                <textarea class="form-control" rows="1" name="comment"></textarea>
+              <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment" placeholder="Comment..">
+                <textarea class="form-control"  id="comment-submit-textbox" rows="1" name="comment"></textarea>
                 <input type="hidden" name="paragraph_id" value=<%=paragraph.id%>>
                 <div><input type="submit" class="btn btn-default" value="Submit"></div>
               </form>
