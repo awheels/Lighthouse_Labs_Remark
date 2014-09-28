@@ -55,3 +55,8 @@ post '/comment' do
     redirect "/users/login"
   end
 end
+
+get '/scomment' do
+  number_of_scomments = Selectioncomment.count + 1
+  number_of_scomments.to_s
+end

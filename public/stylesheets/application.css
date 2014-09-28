@@ -248,3 +248,13 @@ p {
 .document-title-error {
   color: red;
 }
+
+.comment-select {
+  border: 1px solid red;
+  border-radius: 3px;
+  background-color: #ffabab;
+}
+
+.comment-select:hover {
+  background-color: #ffdede;
+}

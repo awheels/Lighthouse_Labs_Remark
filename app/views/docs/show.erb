@@ -50,12 +50,25 @@ $( ".paragraph_body" ).click(function() {
 });
 
 $(document).on("mouseup", function() {
-  var selection= window.getSelection().getRangeAt(0);
-  var selectedText = selection.extractContents();
-  var span= document.createElement("span");
-  span.style.background = "red";
-  span.appendChild(selectedText);
-  selection.insertNode(span);
+  var selection = window.getSelection().getRangeAt(0);
+  var toGetParagraphID = selection.commonAncestorContainer.parentNode;
+  var paragraphID
+  if ($(toGetParagraphID).is('p')){
+    paragraphID = $(toGetParagraphID.parentNode).attr('data-target').split('_')[3];
+  } else if ($(toGetParagraphID).is('div')){
+    paragraphID = $(toGetParagraphID).attr('data-target').split('_')[3];
+  } else {
+    paragraphID = $(toGetParagraphID.parentNode.parentNode).attr('data-target').split('_')[3];
+  }
+  //display a little + to indicate adding comments.
+  $.get('/scomment').then(function(id){
+    var selectedText = selection.extractContents();
+    var span= document.createElement("span");
+    span.className="comment-select"
+    span.setAttribute("id", "ID" + id);
+    span.appendChild(selectedText);
+    selection.insertNode(span);
+  });
 });
 </script>
 

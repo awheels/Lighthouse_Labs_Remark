@@ -1,4 +1,4 @@
-rclass Document < ActiveRecord::Base
+class Document < ActiveRecord::Base
   validates :title, :description, presence: true
   belongs_to :user
   has_many :selectioncomments
