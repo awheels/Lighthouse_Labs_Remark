@@ -2,7 +2,7 @@
 <div class="container width-fix">
   <div class="row">
     <div class="col-md-8 top-buffer-main">
-      <div id="myCarousel" class="carousel slide main-box" data-interval="3000" data-ride="carousel">
+      <div id="myCarousel" class="carousel slide main-box" data-interval="7000" data-ride="carousel">
       <!-- Carousel indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -11,25 +11,25 @@
         </ol>   
        <!-- Carousel items -->
         <div class="carousel-inner">
-            <div class="active item">
-                <h2>Slide 1</h2>
+            <div class="active item" id="carousel-1">
+                <!-- <h2>Slide 1</h2> -->
                 <div class="carousel-caption">
-                  <h3>First slide label</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 class="carousel-cap-font">Welcome to Re:Marks!</h3>
+                  <p class="carousel-cap-font">It lets you collect by-the-line feedback on your various writings-from lots of people!</p>
                 </div>
             </div>
-            <div class="item">
-                <h2>Slide 2</h2>
+            <div class="item" id="carousel-2">
+                <!-- <h2>Slide 2</h2> -->
                 <div class="carousel-caption">
-                  <h3>Second slide label</h3>
-                  <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                  <h3 class="carousel-cap-font">Quick and Easy</h3>
+                  <p class="carousel-cap-font">Create a new document in our slick editor and get specific, constructive critique!</p>
                 </div>
             </div>
-            <div class="item">
-                <h2>Slide 3</h2>
+            <div class="item" id="carousel-3">
+                <h2>Great for teachers</h2>
                 <div class="carousel-caption">
-                  <h3>Third slide label</h3>
-                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  <!-- <h3 class="carousel-cap-font-3">Great for teachers!</h3> -->
+                  <p class="carousel-cap-font-3">Save the effort of paper and mark stuff online!</p>
                 </div>
             </div>
         </div>
@@ -92,11 +92,13 @@
       <a href="/docs/4">
         <div class="feature_box default-box">
           <p class="title"><%=Document.find(5).title%></p>
-          <p class="author"><%=User.find(Document.find(5)).username%></p>
+          <p class="author"><%=User.find(Document.find(2)).username%></p>
           <p class="desc"><%=Document.find(5).description%></p>
         </div>
       </a>   
     </div>
   </div>
+
+  
 
 </div>

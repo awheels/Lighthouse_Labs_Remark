@@ -43,25 +43,26 @@ p {
   margin-bottom: 18px;
 }
 
-.right-post-info {
-  padding-right: 2px;
-  padding-top: 5px;
+.browse-boxes-details {
+  padding:0px;
 }
 
-.right-post-info p {
-  text-align: right;
+.browse-author{
+  font-family: kotta-one, serif;
+  font-size: x-large;
+  margin: 0px 0px 0px 0px;
 }
 
-.left-post-info {
-  text-align: left;
-  padding-left: 2px;
-  padding-top: 5px;
+.browse-comments{
+font-size: large;
+font-style: italic;
+  margin: 0px 0px 20px 0px;
 }
 
-.left-post-info p {
-  text-align: left;
+.browse-paragraphs{
+  font-size: medium;
+  margin-top: 35px;
 }
-
 
 .form_control {
   margin-top: 10px;
@@ -69,7 +70,7 @@ p {
 
 #no-account-warning {
   text-align:center;
-  color:red;
+  color:#CC0000;
   font-weight: bold;
 }
 
@@ -110,6 +111,7 @@ p {
 
 #document_page_author {
   font-size: 12;
+  font-family: kotta-one, serif;
 }
 
 .comment_bar {
@@ -200,7 +202,7 @@ p {
   color: #CC0000;
 }
 
-.width-fix {max-width:1100px;}
+/*.width-fix {max-width:1100px;}*/
 
 .top-buffer { margin-top:20px; }
 
@@ -220,30 +222,33 @@ p {
 }
 
 .document-view-box {
-  min-height: 150px;
+  min-height: 170px;
   margin-bottom: 40px;
 }
 
 .document-view-box h1 {
   font-size: 3.5em;
-  text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .document-view-box p {
-  padding: 3%;
-  font-size: 1.15em;
-  margin-bottom: 0px; 
+  /*font-size: 1.15em;*/
+}
+
+.browse-desc-adjust{
+  margin-top: 10px;
+  /*margin-bottom: 5px;*/
 }
 
 #footer-fix{ height: 30px }
 
 .item h2{
     margin: 0;     
-    color: #666;
+    color:black;
     padding-top: 60px;
     font-size: 52px;
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;  
+    font-family: kotta-one, serif; 
+    font-weight: bold;
 
 }
 
@@ -254,8 +259,9 @@ p {
 }
 
 .item h3{
-    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;  
+    font-family: kotta-one, serif; 
     font-weight: bold;
+    font-size: xx-large;
 
 }
 
@@ -267,25 +273,74 @@ p {
 }
 
 .title{
-        font-family: "Optima", Sans-Serif;
+        font-family: kotta-one, serif;
+        font-weight: bold;
         font-size: x-large;
         margin:-10px 0 -5px 0;
         /*white-space: nowrap;*/
         width: 100%;
 }
 .author{
-        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-        font-style: italic;
+        font-family: kotta-one, serif;
+        /*font-style: italic;*/
         font-size: large;
         margin:-10px 0 5 0;
       }
+
 .desc{
       font-family: "Optima", Sans-Serif;
       font-size: small;
 }
 
+#carousel-1{
+            background-image: url(../images/carousel_1.jpg)
+}
+
+#carousel-2{
+            background-image: url(../images/carousel_2.jpg)
+}
+
+#carousel-3{
+            background-image: url(../images/carousel_3.jpg)
+}
+
+.carousel-cap-font{
+text-align: center;
+color:#CC0000;
+}
+
+.carousel-cap-font-3{
+text-align: center;
+color:black;
+margin-bottom: 200px;
+font-weight: bold;
+}
+
 .document-title-error {
-  color: red;
+  color: #CC0000;
+  font-weight:bold;
+  font-size: medium;
+}
+
+.nav-font {
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+        font-size: large;
+        font-weight: bold;
+}
+
+.login-font{
+            font-family: kotta-one, serif;
+            font-weight: bold;
+}
+
+.instruction{
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            font-size: medium;
+            font-style: italic;
+}
+
+.form-font{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 }
 
 .comment-select {
@@ -296,4 +351,23 @@ p {
 
 .comment-select:hover {
   background-color: #ffdede;
+}
+.form-font-bold{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+        font-weight:bold;
+}
+.form-font-error{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+        font-weight:bold;
+        color: #CC0000;
+}
+
+.comment-font{
+          font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.comment-font-name{
+          font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+          font-style: italic;
+          font-weight: bold;
 }
