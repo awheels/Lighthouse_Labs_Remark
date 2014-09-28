@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  
-  //New code goes below :)
-  
+  var selectMode = false;
+  //New code goes below :)ß
 });

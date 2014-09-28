@@ -4,20 +4,22 @@
       <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p id="document_page_author"><%=User.find(@document.user_id).username%></p></div>
       <div class="column-md-3 col-md-offset-9">
         <div class="side-comment">
-          <span id = "comment-select-button" class="fa fa-font fa-lg"></span>
+          <div class="comment-select-button"><span class="fa fa-edit fa-lg"></span> Select Something!</div>
           <div class="spacer">
-            <form class="comment-form-select" role="form" method="post" action="/" placeholder="Select something">
-              <textarea  class="form-control" id="comment-submit-textbox" rows="1" name="comment"></textarea>
+            <form class="comment-form-select" role="form">
+              <textarea  class="form-control select-comment-input" id="comment-submit-textbox" rows="1" name="comment" placeholder="Select something"></textarea>
               <div class="spacer"></div>
-              <input type="hidden" name="paragraph_id" value=1>
+              <input type="hidden">
               <div>
-                <input type="submit" class="btn btn-default" value="Submit">
+                <button type="button" class="btn btn-default select-submit-button">Default</button>
               </div>
             </form>
+
           </div>
         </div>
       </div>
     </div>
+
       <% @document.paragraphs.each do |paragraph| %>
         
         <div class="row-fluid">
@@ -41,8 +43,8 @@
                 <span onclick="$('#comment_form_<%= paragraph.id%>').toggle();" id="comment-view-button" class="fa fa-comment fa-lg"></span>
               </div>
               <div class="spacer"></div>
-              <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment" placeholder="Comment..">
-                <textarea class="form-control"  id="comment-submit-textbox" rows="1" name="comment"></textarea>
+              <form class="comment_form" id="comment_form_<%= paragraph.id%>" role="form" method="post" action="/comment" >
+                <textarea class="form-control"  id="comment-submit-textbox" rows="1" name="comment" placeholder="Comment..."></textarea>
                 <input type="hidden" name="paragraph_id" value=<%=paragraph.id%>>
                 <div class="spacer"></div>
                 <div><input type="submit" class="btn btn-default" value="Submit"></div>
@@ -55,71 +57,89 @@
 </div>
 
 <script>
+$(document).ready(function() {
 var selectMode = false;
-$(".comment-select-button").on("click", function(){
-  selectMode = true;
-});
 
-if(selectMode === false){
-  $( ".paragraph_body" ).click(function() {
-    var target = $( this ).attr("data-target");
-    var already_visible = $(target).is(":visible");
-    
-    // Hide all comments
-    $('.comment_bar').hide();
-    $('.side-comment').show();
-
-    // only show if wasn't originally visible
-    if (!already_visible) {
-      $(target).show();
-      $('.side-comment').hide();
-    } // otherwise leave it hidden
-  });
-else{
-  $(document).on("mouseup", function() {
-    var selection = window.getSelection().getRangeAt(0);
-    var toGetParagraphID = selection.commonAncestorContainer.parentNode;
-    var paragraphID;
-
-    if ($(toGetParagraphID).is('p')){
-      paragraphID = $(toGetParagraphID.parentNode).attr('data-target').split('_')[3];
-      paragraphFetcher = 2
-    } else if ($(toGetParagraphID).is('div')){
-      paragraphID = $(toGetParagraphID).attr('data-target').split('_')[3];
-      paragraphFetcher = 1
+  $(".comment-select-button").on("click", function(){
+    if(selectMode === true){
+      $('.paragraph_body').css('cursor','pointer');
+      $('.comment-form-select').hide()
+      selectMode = false;
     } else {
-      paragraphID = $(toGetParagraphID.parentNode.parentNode).attr('data-target').split('_')[3];
-      paragraphFetcher = 3
-    }
-    
-    //display a little + to indicate adding comments.
-    $.get('/scomment').then(function(id){
-      var selectedText = selection.extractContents();
-      var span= document.createElement("span");
-      span.className="comment-select"
-      span.setAttribute("id", "ID" + id);
-      span.appendChild(selectedText);
-      selection.insertNode(span);
-
-      var paragraphText;
-      if (paragraphFetcher === 1){
-        paragraphText = $(toGetParagraphID)
-      } else if (paragraphFetcher === 2){
-        paragraphText = $(toGetParagraphID.parentNode)
-      } else if (paragraphFetcher === 3){
-        paragraphText = $(toGetParagraphID.parentNode.parentNode)
-      };
-      paragraphText = $(paragraphText)[0].innerHTML;
-
-      
-      console.log(paragraphText);
-      $.post('/scomment', {pid: paragraphID, pt: paragraphText}).then(function(id)
-        {
-          location.href = '/docs/' + id;
-        });
-    });
+      $('.paragraph_body').css("cursor", "text");
+      $('.comment-form-select').show()
+      selectMode = true;
+    };
   });
-};
->>>>>>> experimental
+
+  $('.paragraph_body').on("mouseup", function() {
+    if(selectMode === true){
+      var selection = window.getSelection().getRangeAt(0);
+      var toGetParagraphID = selection.commonAncestorContainer.parentNode;
+      var paragraphID;
+
+      if ($(toGetParagraphID).is('p')){
+        paragraphID = $(toGetParagraphID.parentNode).attr('data-target').split('_')[3];
+        paragraphFetcher = 2
+      } else if ($(toGetParagraphID).is('div')){
+        paragraphID = $(toGetParagraphID).attr('data-target').split('_')[3];
+        paragraphFetcher = 1
+      } else {
+        paragraphID = $(toGetParagraphID.parentNode.parentNode).attr('data-target').split('_')[3];
+        paragraphFetcher = 3
+      }
+      
+      //display a little + to indicate adding comments.
+      $.get('/scomment').then(function(id){
+        var selectedText = selection.extractContents();
+        var span= document.createElement("span");
+        span.className="comment-select"
+        span.setAttribute("id", "ID" + id);
+        span.appendChild(selectedText);
+        selection.insertNode(span);
+
+        var paragraphText;
+        if (paragraphFetcher === 1){
+          paragraphText = $(toGetParagraphID)
+        } else if (paragraphFetcher === 2){
+          paragraphText = $(toGetParagraphID.parentNode)
+        } else if (paragraphFetcher === 3){
+          paragraphText = $(toGetParagraphID.parentNode.parentNode)
+        };
+        paragraphText = $(paragraphText)[0].innerHTML;
+        console.log("ready to click")
+        $('.select-submit-button').on("click", function(){
+          console.log("yeah but I clicked it..")
+          var commentText = $('.select-comment-input').val();
+          $.post('/scomment', {pid: paragraphID, pt: paragraphText, comment_text: commentText}).then(function(id){
+            if (id === "userloginpls"){
+              location.href = '/users/login';
+            } else {
+              location.href = '/docs/' + id;
+            };
+          });
+        });
+        console.log("done to click")
+      });
+    };
+  });
+
+  $( ".paragraph_body" ).click(function() {
+    if ( selectMode === false){
+      var target = $( this ).attr("data-target");
+      var already_visible = $(target).is(":visible");
+      
+      // Hide all comments
+      $('.comment_bar').hide();
+      $('.side-comment').show();
+
+      // only show if wasn't originally visible
+      if (!already_visible) {
+        $(target).show();
+        $('.side-comment').hide();
+      }; // otherwise leave it hidden
+    };
+  });
+});
 </script>
 

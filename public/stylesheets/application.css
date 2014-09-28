@@ -136,6 +136,7 @@ p {
 }
 
 #comment-view-button {
+  cursor: pointer;
   transition: opacity 0.3s ease;
   opacity: 0.75;
 }
@@ -154,12 +155,13 @@ p {
  width: 18%;
  display: inline;
 }
-#comment-select-button {
+.comment-select-button {
+  cursor: pointer;
   transition: opacity 0.3s ease;
   opacity: 0.75;
 }
 
-#comment-select-button:hover {
+.comment-select-button:hover {
   transition: opacity 0.3s ease;
   opacity: 1;
 }
@@ -186,6 +188,7 @@ p {
 }
 
 .comment-form-select {
+  display: none;
 }
 
 #re{font-size: 250%;

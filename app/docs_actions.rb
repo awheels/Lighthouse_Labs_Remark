@@ -82,11 +82,24 @@ get '/scomment' do
 end
 
 post '/scomment' do
-  paragraph = Paragraph.find(params[:pid])
-  paragraph.update(body: params[:pt])
-  if paragraph.save
-    return paragraph.document_id.to_s
+  if session[:id]
+    paragraph = Paragraph.find(params[:pid])
+    paragraph.update(body: params[:pt])
+    doc_id = paragraph.document_id
+    newComment = Selectioncomment.new(
+      content: params[:content_text],
+      user_id: session[:id],
+      document_id: doc_id
+    )
+    puts "COOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL"
+    puts newComment
+    puts newComment.save
+    if paragraph.save
+      return paragraph.document_id.to_s
+    else
+      500
+    end
   else
-    500
+    return "userloginpls"
   end
 end
