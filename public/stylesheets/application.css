@@ -209,10 +209,11 @@ font-style: italic;
 
 .item h2{
     margin: 0;     
-    color: #666;
+    color:black;
     padding-top: 60px;
     font-size: 52px;
     font-family: kotta-one, serif; 
+    font-weight: bold;
 
 }
 
@@ -257,19 +258,27 @@ font-style: italic;
 }
 
 #carousel-1{
-            /*background-image: url(http://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png)*/
+            background-image: url(../images/carousel_1.jpg)
 }
 
 #carousel-2{
-            /*background-image: url(http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png)*/
+            background-image: url(../images/carousel_2.jpg)
 }
 
 #carousel-3{
-            /*background-image: url(http://upload.wikimedia.org/wikipedia/en/a/aa/Pok%C3%A9mon_Meowth_art.png)*/
+            background-image: url(../images/carousel_3.jpg)
 }
 
 .carousel-cap-font{
 text-align: center;
+color:#CC0000;
+}
+
+.carousel-cap-font-3{
+text-align: center;
+color:black;
+margin-bottom: 200px;
+font-weight: bold;
 }
 
 .document-title-error {
