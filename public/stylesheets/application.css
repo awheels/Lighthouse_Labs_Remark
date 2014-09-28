@@ -135,13 +135,42 @@ p {
   padding-top: 5px;
 }
 
-#comment-submit-textbox {
-  margin-top:4px;
+#comment-view-button {
+  transition: opacity 0.3s ease;
+  opacity: 0.75;
+}
+
+#comment-view-button:hover {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.spacer {
+  margin-top: 5px;
+}
+
+.side-comment {
+ position: fixed;
+ width: 18%;
+ display: inline;
+}
+#comment-select-button {
+  transition: opacity 0.3s ease;
+  opacity: 0.75;
+}
+
+#comment-select-button:hover {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.comment-submit-textbox {
+  margin-top:8px;
   margin-bottom:4px;
 }
 .paragraph_body {
   display: inline-block;
-  cursor: default;
+  cursor: pointer;
   padding-right: 25px;
   padding-left:5px;
   margin-bottom:40px;
@@ -154,6 +183,9 @@ p {
 
 .comment_form {
   display:none;
+}
+
+.comment-form-select {
 }
 
 #re{font-size: 250%;
