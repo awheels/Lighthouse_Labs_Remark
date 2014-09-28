@@ -106,6 +106,8 @@ p {
 
 #document_page_author {
   font-size: 12;
+  font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+  font-style: italic;
 }
 
 .comment_bar {
@@ -249,23 +251,65 @@ p {
 }
 
 #carousel-1{
-            background-image: url(http://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png)
+            /*background-image: url(http://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png)*/
 }
 
 #carousel-2{
-            background-image: url(http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png)
+            /*background-image: url(http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/250px-007Squirtle.png)*/
 }
 
 #carousel-3{
-            background-image: url(http://upload.wikimedia.org/wikipedia/en/a/aa/Pok%C3%A9mon_Meowth_art.png)
+            /*background-image: url(http://upload.wikimedia.org/wikipedia/en/a/aa/Pok%C3%A9mon_Meowth_art.png)*/
+}
+
+.carousel-cap-font{
+text-align: center;
 }
 
 .document-title-error {
-  color: red;
+  color: #CC0000;
+  font-weight:bold;
+  font-size: medium;
 }
 
 .nav-font {
         font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
         font-size: large;
         font-weight: bold;
+}
+
+.login-font{
+            font-family: kotta-one, serif;
+            font-weight: bold;
+}
+
+.instruction{
+            font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+            font-size: medium;
+            font-style: italic;
+}
+
+.form-font{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.form-font-bold{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+        font-weight:bold;
+}
+
+.form-font-error{
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+        font-weight:bold;
+        color: #CC0000;
+}
+
+.comment-font{
+          font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+}
+
+.comment-font-name{
+          font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+          font-style: italic;
+          font-weight: bold;
 }
