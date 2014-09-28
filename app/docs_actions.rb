@@ -75,3 +75,18 @@ post '/comment' do
     redirect "/users/login"
   end
 end
+
+get '/scomment' do
+  number_of_scomments = Selectioncomment.count + 1
+  number_of_scomments.to_s
+end
+
+post '/scomment' do
+  paragraph = Paragraph.find(params[:pid])
+  paragraph.update(body: params[:pt])
+  if paragraph.save
+    return paragraph.document_id.to_s
+  else
+    500
+  end
+end

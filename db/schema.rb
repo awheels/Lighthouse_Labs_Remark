@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924195901) do
+ActiveRecord::Schema.define(version: 20140927123542) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20140924195901) do
     t.integer  "document_id"
     t.integer  "comment_id"
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "selectioncomments", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

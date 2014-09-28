@@ -76,5 +76,50 @@ if(selectMode === false){
     } // otherwise leave it hidden
   });
 else{
+  $(document).on("mouseup", function() {
+    var selection = window.getSelection().getRangeAt(0);
+    var toGetParagraphID = selection.commonAncestorContainer.parentNode;
+    var paragraphID;
+
+    if ($(toGetParagraphID).is('p')){
+      paragraphID = $(toGetParagraphID.parentNode).attr('data-target').split('_')[3];
+      paragraphFetcher = 2
+    } else if ($(toGetParagraphID).is('div')){
+      paragraphID = $(toGetParagraphID).attr('data-target').split('_')[3];
+      paragraphFetcher = 1
+    } else {
+      paragraphID = $(toGetParagraphID.parentNode.parentNode).attr('data-target').split('_')[3];
+      paragraphFetcher = 3
+    }
+    
+    //display a little + to indicate adding comments.
+    $.get('/scomment').then(function(id){
+      var selectedText = selection.extractContents();
+      var span= document.createElement("span");
+      span.className="comment-select"
+      span.setAttribute("id", "ID" + id);
+      span.appendChild(selectedText);
+      selection.insertNode(span);
+
+      var paragraphText;
+      if (paragraphFetcher === 1){
+        paragraphText = $(toGetParagraphID)
+      } else if (paragraphFetcher === 2){
+        paragraphText = $(toGetParagraphID.parentNode)
+      } else if (paragraphFetcher === 3){
+        paragraphText = $(toGetParagraphID.parentNode.parentNode)
+      };
+      paragraphText = $(paragraphText)[0].innerHTML;
+
+      
+      console.log(paragraphText);
+      $.post('/scomment', {pid: paragraphID, pt: paragraphText}).then(function(id)
+        {
+          location.href = '/docs/' + id;
+        });
+    });
+  });
+};
+>>>>>>> experimental
 </script>
 
