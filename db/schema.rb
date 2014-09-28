@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140924195901) do
   create_table "paragraphs", force: true do |t|
     t.text     "body"
     t.integer  "document_id"
+    t.integer  "comment_id"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"

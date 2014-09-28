@@ -1,6 +1,3 @@
-get '/docs' do #show list of documents.
-  erb :'docs/index'
-end
 
 get '/docs/create' do #document creation page.
   if login?
@@ -12,6 +9,29 @@ get '/docs/create' do #document creation page.
     erb :'/users/login'
   end
 end
+
+get '/docs' do
+    @sorted = Document.order(:created_at)
+    erb :'docs/index'
+end
+
+get '/docs/sort/:sort_method' do #show list of documents. 
+  case params[:sort_method]
+    when "documents"
+      @sorted = Document.find(:all, :conditions => { :user_id => session[:id] })
+    when "commented"
+      @sorted = []
+      Document.all.each do |document|
+        @sorted << document if document.comments.detect {|comment| comment.user_id == session[:id]}
+      end  
+    when "mostcommented"
+      @sorted = Document.all.sort{|x,y| y.comments.count <=> x.comments.count}
+    when "newest"
+      @sorted = Document.order(:created_at)
+    end
+  erb :'docs/index'
+end
+
 
 get '/docs/:id' do #show specific document. DO NOT MOVE THIS.
   @document = Document.find(params[:id]) 
