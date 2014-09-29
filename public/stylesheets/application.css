@@ -15,6 +15,10 @@ margin-top:0
   min-height: 200px;
 }
 
+#editor_box p {
+  text-align: left;
+}
+
 .btn-group-justified {
   margin-bottom: 20px;
 }
