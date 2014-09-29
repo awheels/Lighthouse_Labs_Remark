@@ -4,10 +4,22 @@
       <div class="col-xs-9 document_title"> <h1><%=@document.title%></h1><p id="document_page_author"><%=User.find(@document.user_id).username%></p></div>
       <div class="column-md-3 col-md-offset-9">
         <div class="side-comment">
+        <% @document.selectioncomments.each do |comment| %>
+          <div class="selection-comment" id="ID<%=comment.id%>">
+            <div class="comment-font">
+              <%= comment.content %>
+              
+            </div>
+            <div class="col-xs-12 comment_user comment-font-name">
+
+              - <%= User.find(comment.user_id).username%>
+            </div>
+          </div>
+        <% end %> 
           <div class="comment-select-button"><span class="fa fa-edit fa-lg"></span> Select Something!</div>
           <div class="spacer">
             <form class="comment-form-select" role="form">
-              <textarea  class="form-control select-comment-input" id="comment-submit-textbox" rows="1" name="comment" placeholder="Select something"></textarea>
+              <textarea  class="form-control select-comment-input" id="comment-submit-textbox" rows="1" name="comment" placeholder="Type Something"></textarea>
               <div class="spacer"></div>
               <input type="hidden">
               <div>
@@ -96,10 +108,12 @@ var selectMode = false;
       $.get('/scomment').then(function(id){
         var selectedText = selection.extractContents();
         var span= document.createElement("span");
-        span.className="comment-select"
-        span.setAttribute("id", "ID" + id);
+        span.className="comment-select";
+
+        span.setAttribute("data-selected", "ID"+id);
         span.appendChild(selectedText);
         selection.insertNode(span);
+        $(span).data("selected","ID"+id);
 
         var paragraphText;
         if (paragraphFetcher === 1){
@@ -110,11 +124,8 @@ var selectMode = false;
           paragraphText = $(toGetParagraphID.parentNode.parentNode)
         };
         paragraphText = $(paragraphText)[0].innerHTML;
-        console.log("ready to click")
         $('.select-submit-button').on("click", function(){
-          console.log("yeah but I clicked it..")
           var commentText = $('.select-comment-input').val();
-          console.log(typeof commentText)
           $.post('/scomment', {pid: paragraphID, pt: paragraphText, ct: commentText}).then(function(id){
             if (id === "userloginpls"){
               location.href = '/users/login';
@@ -123,12 +134,23 @@ var selectMode = false;
             };
           });
         });
-        console.log("done to click")
       });
     };
   });
 
-  $( ".paragraph_body" ).click(function() {
+  $(".comment-select").on("click", function(event) {
+    event.stopPropagation();
+    if ( selectMode === false){
+      console.log("ClickeD!");
+      var selectCommentID = $(this).data("selected");
+      console.log(selectCommentID);
+      $('#' + selectCommentID).toggle()
+      $('.comment_bar').hide();
+      $('.side-comment').show();
+    }
+  });
+
+  $( ".paragraph_body" ).on("click", function() {
     if ( selectMode === false){
       var target = $( this ).attr("data-target");
       var already_visible = $(target).is(":visible");

@@ -77,8 +77,12 @@ post '/comment' do
 end
 
 get '/scomment' do
-  number_of_scomments = Selectioncomment.count + 1
-  number_of_scomments.to_s
+  if Selectioncomment.count > 0
+    number_of_scomments = Selectioncomment.last.id + 1
+    number_of_scomments.to_s
+  else
+    "0"
+  end
 end
 
 post '/scomment' do
