@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def email_nil
     if email != nil
-      if User.findBy email: email
+      if User.find_by email: email
         errors.add(:email, "is already in use.")
       end
     end
